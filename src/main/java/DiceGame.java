@@ -242,8 +242,7 @@ public class DiceGame extends javax.swing.JFrame {
     //A function to... you guessed it check the winner
     public void checkWinner()
     {
-        //sumOfDice variable which equals both players dice rolls 
-        sumOfDice = Player1Roll + Player2Roll;
+        
         
         //An if statement for whether player 2 is challenging the previous rolls or not 
         if(challengeRoll == false)
@@ -288,8 +287,8 @@ public class DiceGame extends javax.swing.JFrame {
                 //Resets players go to player 1
                 playersGo = 1;
                 
-                //Call the reset label function
-                resetLabels();
+                //Call the reset function
+                Reset();
             }
             else if(Player1Roll == 4 || Player1Roll == 5 || Player1Roll == 6 || Player1Roll == 8 || Player1Roll == 9 || Player1Roll == 10  )
             {
@@ -297,44 +296,82 @@ public class DiceGame extends javax.swing.JFrame {
                 
                 //Changing the label which says whos go it is
                 TurnLabel.setText("Player 2's challenge");
+                
+                //Setting the variable for the next players go
                 playersGo = 2;
+                
+                //Set the boolean for a challenge roll
                 challengeRoll = true;
-                challengeNumber = sumOfDice;
+                
+                //Setting the variable to the score player 2 has to beat
+                challengeNumber = Player1Roll;
             }
         }
         else
         {
             if(Player2Roll > challengeNumber)
             {
+                //Increase player 2's points
                 Player2Points++;
+                
+                //Reset challenge number variable
                 challengeNumber = 0;
+                
+                //Reset challenge roll boolean
                 challengeRoll = false;
+                
+                //Set round winner text 
                 RoundWinner.setText("Round: " + round + " Player 2 wins");
+                
+                //Update player 2's points label
                 P2Points.setText("Player 2 points: " + Player2Points);
+                
+                //Increase round number
                 round++;
-                resetLabels();
+                
+                //Call reset function
+                Reset();
                 playersGo = 1;
                 TurnLabel.setText("Player 1's turn");
             }
             else
             {
+                //Increase player 1's points
                 Player1Points++;
+                
+                //Reset challenge number variable
                 challengeNumber = 0;
+                
+                //Reset challenge roll boolean
                 challengeRoll = false;
+                
+                //Set round winner text 
                 RoundWinner.setText("Round: " + round + " Player 1 wins");
+                
+                //Update player 2's points label
                 P1Points.setText("Player 1 points: " + Player1Points);
+                
+                //Increase round number
                 round++;
-                resetLabels();
+                
+                //Call the reset function
+                Reset();
+                
+                //Set players go to player 1
                 playersGo = 1;
+                
+                //Update label to say player 1's go
                 TurnLabel.setText("Player 1's turn");
             }
         }   
     }
     
-    public void resetLabels()
+    public void Reset()
     {
         //Outcome1.setText("Outcome:");
         //Outcome2.setText("Outcome:");
+        
+        //Reset the variables which store the players roll outcomes
         Player1Roll = 0;
         Player2Roll = 0;
     }
