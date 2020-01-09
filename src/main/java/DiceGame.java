@@ -179,7 +179,7 @@ public class DiceGame extends javax.swing.JFrame {
             //Calling the check winner function
             checkWinner();
             
-           
+            
         }
         else
         {
