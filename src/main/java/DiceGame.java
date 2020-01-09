@@ -179,14 +179,7 @@ public class DiceGame extends javax.swing.JFrame {
             //Calling the check winner function
             checkWinner();
             
-            /*
-            //An if statement to check the result once both players have rolled 
-            if(Player1Roll != 0 && Player2Roll != 0)
-            {
-                
-                
-            }
-            */
+           
         }
         else
         {
