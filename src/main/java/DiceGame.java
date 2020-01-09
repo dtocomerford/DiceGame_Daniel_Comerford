@@ -264,7 +264,7 @@ public class DiceGame extends javax.swing.JFrame {
                 RoundWinner.setText("Round: " + round + " Player 1 wins");
                 
                 //Call the reset label function
-                resetLabels();
+                Reset();
             }
             else if(Player1Roll == 2 || Player1Roll == 3 || Player1Roll == 12 )
             {
